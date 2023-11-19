@@ -33,4 +33,7 @@ package() {
 
   cd ../server/scripts
   cp "$_script_name" "$pkgdir"/usr/bin/"$_script_name"
+
+  cd $HOME
+  mkdir -p ".$pkgname"
 }

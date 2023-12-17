@@ -42,5 +42,4 @@ package() {
   mkdir -p ".$pkgname"
 
   systemctl --root="$pkgdir" enable "$_service_name"
-  systemctl start "$_service_name"
 }

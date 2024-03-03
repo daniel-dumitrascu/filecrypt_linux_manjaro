@@ -9,13 +9,16 @@ arch=('x86_64')
 url="https://github.com/daniel-dumitrascu/filecrypt"
 license=("MIT")
 makedepends=('git')
-source=('filecrypt.tar.gz')
-md5sums=('SKIP')
+depends=('go')
 
 _server_app_name="filecrypt_server"
 _client_app_name="filecrypt_client"
 _script_name="filecrypt.py"
 _service_name="filecrypt.service"
+
+prepare() {
+    git clone --depth=1 --branch=main https://github.com/daniel-dumitrascu/filecrypt.git "$pkgname"
+}
 
 build() {
   cd "$pkgname"/server

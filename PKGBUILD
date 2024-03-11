@@ -10,6 +10,7 @@ url="https://github.com/daniel-dumitrascu/filecrypt"
 license=("MIT")
 makedepends=('git')
 depends=('go')
+install=service.install
 
 _server_app_name="filecrypt_server"
 _client_app_name="filecrypt_client"
@@ -36,13 +37,11 @@ package() {
   install -Dm755 ./client "$pkgdir/usr/bin/$_client_app_name"
 
   cd ../server/daemon
-  install -Dm644 ./"$_service_name" "$pkgdir/etc/systemd/system/$_service_name"
+  install -Dm755 ./"$_service_name" "$pkgdir/etc/systemd/system/$_service_name"
 
   cd ../scripts
   cp "$_script_name" "$pkgdir"/usr/bin/"$_script_name"
 
   cd $HOME
   mkdir -p ".$pkgname"
-
-  systemctl --root="$pkgdir" enable "$_service_name"
 }

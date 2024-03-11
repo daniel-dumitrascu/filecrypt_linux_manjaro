@@ -1,0 +1,5 @@
+post_install() {
+  systemctl daemon-reload
+  systemctl start filecrypt.service
+  systemctl enable filecrypt.service
+}

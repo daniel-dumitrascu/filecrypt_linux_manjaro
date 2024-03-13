@@ -8,7 +8,7 @@ pkgdesc="Easy encrypt and decrypt files using the mouse context menu"
 arch=('x86_64')
 url="https://github.com/daniel-dumitrascu/filecrypt"
 license=("MIT")
-makedepends=('git')
+makedepends=('git' 'python' 'python-cryptography')
 depends=('go')
 install=service.install
 
@@ -18,7 +18,7 @@ _script_name="filecrypt.py"
 _service_name="filecrypt.service"
 
 prepare() {
-    git clone --depth=1 --branch=main https://github.com/daniel-dumitrascu/filecrypt.git "$pkgname"
+  git clone --depth=1 --branch=main https://github.com/daniel-dumitrascu/filecrypt.git "$pkgname"
 }
 
 build() {

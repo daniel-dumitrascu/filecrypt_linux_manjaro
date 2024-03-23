@@ -7,6 +7,6 @@
   </p>
 </div>
 
-### How to pack and install
+#### How to pack and install
 
 makepkg -si
